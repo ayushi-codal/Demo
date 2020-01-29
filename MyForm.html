@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="MyForm.css" />
+    </head>
+    <body onload="initialLoad();" >
+    <script src="MyForm.js"></script>
+     <h4>Please fill the below form!ll</h4>
+        <form name="myForm" id="form1">
+            <span><b>First Name:</b></span>
+            &nbsp&nbsp<input type="text" id="Fname" name="FirstName" value="" required onkeyup="validateUsername(this)" oninput="initialLoad()"><br>
+            <div class="error"  id="fnameErr"></div>
+            <br>
+
+            <span><b>Last Name:</b></span>
+            &nbsp&nbsp<input type="text" id="Lname" name="LastName" value="" onkeyup="validateUsername(this)" oninput="initialLoad()" required><br>
+            <div class="error" id="lnameErr"></div>
+            <br>
+
+           <span><b>Phone Number:</b></span>
+            <input type="text" id="phno" name="MobileNumber" value="" maxlength="10" oninput="initialLoad()" onkeyup="validateMobileNumber()" onkeypress=' return onlyNum(event);' ><br>
+            <div class="error" id="phnErr"></div>
+            <br>
+
+            <span><b>Email Address:</b></span>
+            <input type="text" id="email" name="email" value="" required onkeyup="validateEmail()" oninput="initialLoad()"><br>
+            <div class="error" id="emailErr"></div>
+            <br>
+
+            <span><b>Gender:</b></span>
+            <input type="radio" id="gnd1" name="gender" value="Male" oninput="initialLoad()" > Male 
+            <input type="radio" id="gnd2" name="gender" value="Female" oninput="initialLoad()" > Female
+            <input type="radio" id="gnd3" name="gender" value="Other" oninput="initialLoad()"> Other 
+            <div class="error" id="genderErr"></div>
+            <br>
+
+            <span><b>Enrollment Number:</b></span>
+            <input type="text" id="Enrollno" name="Enrollno" maxlength="12" onkeyup="validateEnrollno()" oninput="initialLoad()" onkeypress=' return onlyNum(event);'><br>
+            <div class="error" id="enrollErr"></div>
+            <br>
+
+            <span><b>Certificates:</b><i>(Optional)</i></span>
+            <input type="file" id="Certificates" name="Certificates" value = "" ><br><br>
+
+            <span><b>Hobbies</b></span>
+            <label style="text-align:end;"> Select All
+               <input type="checkbox" name="selectAll" id="selectAll" onclick="selectAllCheckBoxes(this),initialLoad()" >
+                <span class="checkmark"></span>
+            </label>
+              <label class="container"> Singing
+                <input type="checkbox" id="hobby1" name="checks" value="Singing" onclick="initialLoad()" >
+                <span class="checkmark"></span>
+              </label>
+              <label class="container"> Dancing
+                <input type="checkbox" id="hobby2" name="checks" value="Dancing" onclick="initialLoad()" >
+                <span class="checkmark"></span>
+              </label>
+              <label class="container"> Music
+                <input type="checkbox" id="hobby3" name="checks" value="Music" onclick="initialLoad()" >
+                <span class="checkmark"></span>
+              </label>
+              <label class="container"> Sports
+                <input type="checkbox" id="hobby4" name="checks" value="Sports" onclick="initialLoad()" >
+                <span class="checkmark"></span>
+              </label>
+              <label class="container"> Painting
+                <input type="checkbox" id="hobby5" name="checks" value="Painting" onclick="initialLoad()" >
+                <span class="checkmark"></span>
+              </label>
+              <label class="container"> Other
+                <input type="checkbox" id="hobby6" name="checks" value="Other" onclick="initialLoad()" >
+                <span class="checkmark"></span>
+              </label>
+            
+              <br>
+           
+            <div class="error" id="hobbiesErr"></div><br>
+            <input id = "button1" type = "button" name="myButton" value = " Add " onclick = "Add()" >  
+            <input id = "button2" type = "button" value = " View " onclick = "viewData(),scrollview()" > 
+             
+    
+        </form>
+        <br><br>
+        <div id="searchCommon">
+        <input type="text" name ="" id="myInput" placeholder="search..." onkeyup="deleteTable(),viewData(), searchValue()" ></div><br>
+        <form name="sortForm">
+
+            <label><b>First Name</b></label>
+            <input type="text" id="Fname1" name="Firstname1" value=""><br>
+
+            <label><b>Last Name</b></label>
+            <input type="text" id="Lname1" name="Lastname1" value=""><br>
+            
+            <span><label id="selectedHobbies"><b>Hobbies</b></label></span>
+              <label class="container"> Singing
+                <input type="checkbox" id="hobby11" name="checks1" value="Singing" >
+                <span class="checkmark"></span>
+              </label>
+              <label class="container"> Dancing
+                <input type="checkbox" id="hobby12" name="checks1" value="Dancing"  >
+                <span class="checkmark"></span>
+              </label>
+              <label class="container"> Music
+                <input type="checkbox" id="hobby13" name="checks1" value="Music"  >
+                <span class="checkmark"></span>
+              </label>
+              <label class="container"> Sports
+                <input type="checkbox" id="hobby14" name="checks1" value="Sports" >
+                <span class="checkmark"></span>
+              </label>
+              <label class="container"> Painting
+                <input type="checkbox" id="hobby15" name="checks1" value="Painting"  >
+                <span class="checkmark"></span>
+              </label>
+              <label class="container"> Other
+                <input type="checkbox" id="hobby16" name="checks1" value="Other" >
+                <span class="checkmark"></span>
+              </label>
+            
+              <br>
+
+
+            <b>Gender</b>
+            <select name="gender_search" id="searchGender">
+                <option>select</option>
+                <option value="Male" id="male">Male</option>
+                <option value="Female" id="female">Female</option>
+                <option value="Other" id="other">Other</option>
+            </select>
+
+            <input type="button" id="sortButton" name="mySort" value="Search" onclick="viewData(),filterTable() ">
+        </form>
+        <div id="listTable">
+        <table class="list" id="mylist" >
+            <thead>
+            <tr>
+                <td class="head">Index</td>
+                <td class="head" class="sort" onclick="sortTableValues(this)">Fname</td>
+                <td class="head" class="sort" onclick="sortTableValues(this)">Lname</td>
+                <td class="head" >contact</td>
+                <td class="head">Email</td>
+                <td class="head" class="sort" onclick="sortTableValues(this)">Gender</td style="background-color:cornflowerblue">
+                <td class="head" >Enrollment no</td>
+                <td class="head" >Certificates</td>
+                <td class="head">Hobby</td>
+                <td class="head">Delete</td>
+                <td class="head" >Edit</tdclass="head">
+        
+
+            </tr>
+            </thead>
+
+
+            <tbody id="tablerows">
+
+            </tbody>
+          
+        </table>
+      </div>
+        
+    </body>
+</html>

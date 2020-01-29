@@ -1,0 +1,120 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+table{
+    border-collapse: collapse;
+    width: 50%;
+    margin: 50px auto;
+
+}
+table, th, td{
+    border: 2px solid black;
+    padding: 5px;
+
+    
+}
+
+body {
+    font-size: 16px;
+    background: #f9f9f9;
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+h4 {
+    text-align: center;
+    text-decoration: underline;
+}
+form {
+    width: 500px;
+    background: #fff;
+    padding: 15px 40px 40px; 
+    border: 1px solid #ccc;
+    margin: 50px auto 0;
+    border-radius: 5px;
+} 
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+label i {
+    color: #999;
+    font-size: 80%;
+}
+input{
+    border: 1px solid #ccc;
+    /* padding: 10px; */
+    /* display: block; */
+    /* width: 100%; */
+    /* margin-left: 50px; */
+    width: 100%;
+  padding: 12px;
+    box-sizing: border-box;
+    border-radius: 2px;
+    align-items: left;
+    position: relative;
+    resize: vertical;
+    padding-left: 20px;
+
+}
+
+ input[type="checkbox"]
+{
+
+    width: unset;
+/* vertical-align: middle; */
+    /* align-items: baseline; */
+    margin-right: 400px;
+    /* padding-right: 100px; */
+align-self: left;    
+} 
+input[type = "radio"]
+{
+    width: unset;
+}
+.list td.head{
+    background-color: cornflowerblue;
+} 
+.list td .sort:hover {
+    background-color: lightblue;
+    color: green; 
+    background: lightcoral;
+}
+.checkboxes input,.checkboxes label{
+	display:inline-block;
+	vertical-align:middle;
+}
+.checkboxes label{margin-right:20px;}
+.error {
+    color: red;
+    font-size: 90%;
+}
+input[type="button"] {
+    font-size: 110%;
+    font-weight: 100;
+    background: #006dcc;
+    color :black;
+    margin-top: 10px;
+    cursor: pointer;
+}
+input[type="button"]:disabled{
+    background: lightskyblue;
+}
+
+#searchCommon{
+    width: 200px;
+    background: #fff;
+    border: 1px solid #ccc;
+    margin: 10px auto 0;
+    border-radius: 5px;
+} 
+
+ #noDataFound
+ {
+     font-weight: 500;
+     font-size: 30px;
+     color: red;
+     margin-left: 500px;
+ }
+ .rowColor{
+     background-color: lightblue;
+ }
